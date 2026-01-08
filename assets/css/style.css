@@ -226,6 +226,11 @@ body {
     left: 80px
 }
 
+
+#toggleIcon{
+    font-size: 25px !important;
+}
+
 /* ===== CONTENT ===== */
 .main-content {
     margin-top: 64px;
