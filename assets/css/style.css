@@ -258,7 +258,7 @@ body {
     color: #6b7280;
 }
 
-.navbar-custom .dropdown{
+.navbar-custom .dropdown {
     padding: 0px !important;
 }
 
@@ -267,7 +267,7 @@ body {
     height: 40px !important;
     border-radius: 50% !important;
     background: #4f46e5 !important;
-    color: #eef2ff!important;
+    color: #eef2ff !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -378,4 +378,75 @@ option {
     .table td {
         white-space: nowrap !important;
     }
+}
+
+
+
+/* ============================ALL STUDENT NOTIFICATION CSS ========================= */
+
+.notification-bell {
+    position: relative;
+    cursor: pointer;
+}
+
+.notify-dot {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 8px;
+    height: 8px;
+    background: red;
+    border-radius: 50%;
+}
+
+.dropdown-menu-notify {
+    width: 320px;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.notify-header {
+    padding: 12px 15px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+}
+
+.notify-item {
+    padding: 12px 15px;
+    display: flex;
+    gap: 10px;
+    align-items: start;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.notify-item:last-child {
+    border-bottom: none;
+}
+
+.notify-item:hover {
+    background: #f8f9fa;
+}
+
+.notify-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e0e7ff;
+    color: #4338ca;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.notify-time {
+    font-size: 11px;
+    color: #6b7280;
+}
+
+.notify-footer {
+    padding: 10px;
+    text-align: center;
 }
