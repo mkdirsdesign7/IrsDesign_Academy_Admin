@@ -249,6 +249,7 @@ body {
     background-color: #F9B217;
     box-shadow: rgba(230, 181, 48, 0.575) 0px 5px 15px;
     padding: 10px 20px !important;
+    height: 100px !important;
 }
 
 .search-input {
