@@ -164,14 +164,10 @@ body {
 .sidebar-footer .sidebar-link {
     color: var(--danger);
     font-weight: 700;
-    background-color: none !important;
+    width: 100% !important;
 }
 
-.sidebar-footer .dropdown-item{
-    background-color: none !important;
-   width: 100% !important;
-}
-
+    
 /* Collapse text */
 .sidebar.collapsed .logo-text,
 .sidebar.collapsed span {
