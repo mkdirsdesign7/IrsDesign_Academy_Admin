@@ -167,6 +167,11 @@ body {
     background-color: none !important;
 }
 
+.sidebar-footer .dropdown-item{
+    background-color: none !important;
+    margin-right: -12px !important;
+}
+
 /* Collapse text */
 .sidebar.collapsed .logo-text,
 .sidebar.collapsed span {
