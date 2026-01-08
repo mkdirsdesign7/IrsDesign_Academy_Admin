@@ -258,6 +258,9 @@ body {
     color: #6b7280;
 }
 
+.navbar-custom .dropdown{
+    padding: 0px !important;
+}
 
 .avatar {
     width: 40px !important;
