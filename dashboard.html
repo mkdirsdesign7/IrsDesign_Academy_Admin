@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+    <!-- custom css lihk -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
+</head>
+
+<body>
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-sidebar-btn d-md-none" onclick="closeSidebar()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="sidebar-header">
+            <div class="logo-box"><img src="././assets/img/logo.png" alt="logo" width="60px" height="60px"></div>
+            <div class="logo-text">
+                <p class="text-white ms-3 fs-5">Admin Panel</p>
+            </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSidebar()">
+            <i class="bi bi-chevron-left" id="toggleIcon"></i>
+        </button>
+
+        <nav class="sidebar-nav">
+            <a href="/dashboard.html" class="sidebar-link active"><i
+                    class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+            <a href="./students/students-list.html" class="sidebar-link"><i class="bi bi-people"></i><span>Students</span></a>
+            <a href="./courses/courses-list.html" class="sidebar-link"><i class="bi bi-book"></i><span>Courses</span></a>
+            <a href="./trainers/trainers-list.html" class="sidebar-link"><i class="bi bi-person-video2"></i><span>Teachers</span></a>
+            <a href="./batches/batches-list.html" class="sidebar-link"><i class="bi bi-layers"></i><span>Batches</span></a>
+            <a href="./attendance/attendance.html" class="sidebar-link"><i class="bi bi-calendar-check"></i><span>Attendance</span></a>
+            <a href="./payment/payments-list.html" class="sidebar-link"><i class="bi bi-credit-card"></i><span>Payments</span></a>
+            <a href="././enquiries/enquiries-list.html" class="sidebar-link"><i class="bi bi-chat-left-dots"></i><span>Enquiries</span></a>
+            <a href="././certificates/certificates.html" class="sidebar-link"><i class="bi bi-patch-check"></i><span>Certificates</span></a>
+            <a href="./reports/reports.html" class="sidebar-link"><i class="fa-regular fa-chart-bar"></i><span>Reports</span></a>
+            <a href="././settings/settings.html" class="sidebar-link"><i class="bi bi-gear"></i><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a class="sidebar-link"><i class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+        </div>
+    </aside>
+
+    <!-- NAVBAR -->
+    <header class="navbar-custom d-flex align-items-center justify-content-between">
+
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-light d-md-none bg-warning text-white fs-6" onclick="toggleSidebar()">
+                <i class="bi bi-list" id="toggleIcon"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold">Dashboard</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+            <div class="position-relative d-none d-md-block">
+                <i class="bi bi-search search-icon"></i>
+                <input class="form-control search-input" style="width:240px" placeholder="Search...">
+            </div>
+
+            <button class="btn btn-light position-relative">
+                <i class="bi bi-bell"></i>
+                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>
+            </button>
+
+            <div class="dropdown">
+                <button class="btn btn-light d-flex align-items-center gap-2" data-bs-toggle="dropdown">
+                    <div class="avatar">AD</div>
+                    <span class="d-none d-md-inline">Admin</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a href="./admin-profile.html" class="dropdown-item text-success pointer">Profile</a></li>
+                    <li><a href="./settings/settings.html" class="dropdown-item">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-danger">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <div class="container-fluid px-3 px-md-4 mt-4">
+            <div class="row g-3">
+
+                <!-- Total Students -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="stat-card shadow-lg">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="stat-title">Total Students</div>
+                                <div class="stat-value">1,247</div>
+                                <div class="stat-change up">
+                                    <i class="bi bi-arrow-up"></i> +12%
+                                    <span class="text-muted">vs last month</span>
+                                </div>
+                            </div>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-people"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Courses -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="stat-card shadow-lg">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="stat-title">Active Courses</div>
+                                <div class="stat-value">24</div>
+                                <div class="stat-change up">
+                                    <i class="bi bi-arrow-up"></i> +3
+                                    <span class="text-muted">vs last month</span>
+                                </div>
+                            </div>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-book"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Running Batches -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="stat-card shadow-lg">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="stat-title">Running Batches</div>
+                                <div class="stat-value">18</div>
+                                <div class="stat-change up">
+                                    <i class="bi bi-arrow-up"></i> +2
+                                    <span class="text-muted">vs last month</span>
+                                </div>
+                            </div>
+                            <div class="stat-icon icon-teal">
+                                <i class="bi bi-layers"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Revenue -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="stat-card shadow-lg">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="stat-title">Revenue (Month)</div>
+                                <div class="stat-value">₹4,52,000</div>
+                                <div class="stat-change down">
+                                    <i class="bi bi-arrow-down"></i> -5%
+                                    <span class="text-muted">vs last month</span>
+                                </div>
+                            </div>
+                            <div class="stat-icon icon-orange">
+                                <i class="bi bi-currency-rupee"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- enrollment trend and popular course -->
+
+        <section>
+            <div class="container-fluid px-3 px-md-4 mt-4">
+                <div class="row g-4">
+
+                    <!-- Enrollment Trend -->
+                    <div class="col-12 col-lg-6">
+                        <div class="chart-card shadow-lg">
+                            <div class="card-header-custom">
+                                <h6>Enrollment Trend</h6>
+                               
+                            </div>
+
+                            <div class="line-chart">
+                                <svg viewBox="0 0 600 250" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35" />
+                                            <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+                                        </linearGradient>
+                                    </defs>
+
+                                    <!-- Area -->
+                                    <path class="area"
+                                        d="M0,180 L100,150 L200,100 L300,140 L400,80 L500,20 L600,40 L600,250 L0,250 Z" />
+
+                                    <!-- Line -->
+                                    <path class="line" d="M0,180 L100,150 L200,100 L300,140 L400,80 L500,20 L600,40" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popular Courses -->
+                    <div class="col-12 col-lg-6">
+                        <div class="chart-card shadow-lg">
+                            <div class="card-header-custom">
+                                <h6>Popular Courses</h6>
+                            </div>
+
+                            <div class="bar-row">
+                                <div class="bar-label" style="width:80px;">React</div>
+                                <div class="bar w-100"></div>
+                            </div>
+
+                            <div class="bar-row">
+                                <div class="bar-label" style="width:80px;">Python</div>
+                                <div class="bar" style="width:85%;"></div>
+                            </div>
+
+                            <div class="bar-row">
+                                <div class="bar-label" style="width:80px;">Java</div>
+                                <div class="bar" style="width:65%;"></div>
+                            </div>
+
+                            <div class="bar-row">
+                                <div class="bar-label" style="width:80px;">Node.js</div>
+                                <div class="bar" style="width:55%;"></div>
+                            </div>
+
+                            <div class="bar-row">
+                                <div class="bar-label" style="width:80px;">AWS</div>
+                                <div class="bar" style="width:45%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- recent enrollment and upcoming batches -->
+
+        <section>
+            <div class="container-fluid px-3 px-md-4 mt-4">
+                <div class="row g-4">
+
+                    <!-- Recent Enrollments -->
+                    <div class="col-12 col-lg-7">
+                        <div class="dashboard-card shadow-lg">
+                            <div class="card-head">
+                                <h6>Recent Enrollments</h6>
+                            </div>
+
+                            <div class="enroll-item">
+                                <div class="user-info">
+                                    <div class="avatar">RK</div>
+                                    <div>
+                                        <div class="user-name">Rahul Kumar</div>
+                                        <div class="user-course">Full Stack Development</div>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <span class="status active">Active</span>
+                                    <div class="time">Today</div>
+                                </div>
+                            </div>
+
+                            <div class="enroll-item">
+                                <div class="user-info">
+                                    <div class="avatar">PS</div>
+                                    <div>
+                                        <div class="user-name">Priya Sharma</div>
+                                        <div class="user-course">Python Programming</div>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <span class="status active">Active</span>
+                                    <div class="time">Today</div>
+                                </div>
+                            </div>
+
+                            <div class="enroll-item">
+                                <div class="user-info">
+                                    <div class="avatar">AS</div>
+                                    <div>
+                                        <div class="user-name">Amit Singh</div>
+                                        <div class="user-course">React.js Mastery</div>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <span class="status pending">Pending</span>
+                                    <div class="time">Yesterday</div>
+                                </div>
+                            </div>
+
+                            <div class="enroll-item">
+                                <div class="user-info">
+                                    <div class="avatar">SP</div>
+                                    <div>
+                                        <div class="user-name">Sneha Patel</div>
+                                        <div class="user-course">AWS Cloud</div>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <span class="status active">Active</span>
+                                    <div class="time">Yesterday</div>
+                                </div>
+                            </div>
+
+                            <div class="enroll-item">
+                                <div class="user-info">
+                                    <div class="avatar">VR</div>
+                                    <div>
+                                        <div class="user-name">Vikram Reddy</div>
+                                        <div class="user-course">Java Development</div>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <span class="status active">Active</span>
+                                    <div class="time">2 days ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Batches -->
+                    <div class="col-12 col-lg-5">
+                        <div class="dashboard-card shadow-lg">
+                            <div class="card-head">
+                                <h6>Upcoming Batches</h6>
+                                <a href="./batches/batches-list.html" class="view-all">View All →</a>
+                            </div>
+
+                            <div class="p-3">
+                                <div class="batch-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <div class="batch-title">React Advanced</div>
+                                            <div class="batch-meta">
+                                                <i class="bi bi-calendar"></i> Dec 25, 2024
+                                            </div>
+                                        </div>
+                                        <span class="seats">5/20 seats</span>
+                                    </div>
+                                </div>
+
+                                <div class="batch-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <div class="batch-title">Python ML</div>
+                                            <div class="batch-meta">
+                                                <i class="bi bi-calendar"></i> Dec 28, 2024
+                                            </div>
+                                        </div>
+                                        <span class="seats">12/15 seats</span>
+                                    </div>
+                                </div>
+
+                                <div class="batch-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <div class="batch-title">AWS Architect</div>
+                                            <div class="batch-meta">
+                                                <i class="bi bi-calendar"></i> Jan 2, 2025
+                                            </div>
+                                        </div>
+                                        <span class="seats">8/20 seats</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- main js link -->
+     <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

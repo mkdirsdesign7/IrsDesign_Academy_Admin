@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./../assets/css/certificate.css">
+    <link rel="stylesheet" href="./../assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-sidebar-btn d-md-none" onclick="closeSidebar()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="sidebar-header">
+            <div class="logo-box"><img src="./../assets/img/logo.png" alt="logo" width="60px" height="60px"></div>
+            <div class="logo-text">
+                <p class="text-white ms-3 fs-5">Admin Panel</p>
+            </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSidebar()">
+            <i class="bi bi-chevron-left" id="toggleIcon"></i>
+        </button>
+
+        <nav class="sidebar-nav">
+            <a href="/dashboard.html" class="sidebar-link "><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+            <a href="./../students/students-list.html" class="sidebar-link"><i
+                    class="bi bi-people"></i><span>Students</span></a>
+            <a href="./../courses/courses-list.html" class="sidebar-link"><i
+                    class="bi bi-book"></i><span>Courses</span></a>
+            <a href="./trainers-list.html" class="sidebar-link "><i
+                    class="bi bi-person-video2"></i><span>Teachers</span></a>
+            <a href="./../batches/batches-list.html" class="sidebar-link"><i
+                    class="bi bi-layers"></i><span>Batches</span></a>
+            <a href="./../attendance/attendance.html" class="sidebar-link"><i
+                    class="bi bi-calendar-check"></i><span>Attendance</span></a>
+            <a href="./../payment/payments-list.html" class="sidebar-link"><i
+                    class="bi bi-credit-card"></i><span>Payments</span></a>
+            <a href="./../enquiries/enquiries-list.html" class="sidebar-link"><i
+                    class="bi bi-chat-left-dots"></i><span>Enquiries</span></a>
+            <a href="./../certificates/certificates.html" class="sidebar-link active"><i
+                    class="bi bi-patch-check"></i><span>Certificates</span></a>
+            <a href="./../reports/reports.html" class="sidebar-link"><i
+                    class="fa-regular fa-chart-bar"></i><span>Reports</span></a>
+            <a href="./../settings/settings.html" class="sidebar-link"><i
+                    class="bi bi-gear"></i><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a class="sidebar-link"><i class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+        </div>
+    </aside>
+
+    <!-- NAVBAR -->
+    <header class="navbar-custom d-flex align-items-center justify-content-between">
+
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-light d-md-none bg-warning text-white fs-6" onclick="toggleSidebar()">
+                <i class="bi bi-list" id="toggleIcon"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold">Certificate</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+            <div class="position-relative d-none d-md-block">
+                <i class="bi bi-search search-icon"></i>
+                <input class="form-control search-input" style="width:240px" placeholder="Search...">
+            </div>
+
+            <button class="btn btn-light position-relative">
+                <i class="bi bi-bell"></i>
+                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>
+            </button>
+
+            <div class="dropdown">
+                <button class="btn btn-light d-flex align-items-center gap-2" data-bs-toggle="dropdown">
+                    <div class="avatar">AD</div>
+                    <span class="d-none d-md-inline">Admin</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a href="./../admin-profile.html" class="dropdown-item text-success pointer">Profile</a></li>
+                    <li><a href="./../settings/settings.html" class="dropdown-item">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-danger">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- MAIN -->
+    <main class="main-content">
+        <div class="container-fluid">
+            <div class="row g-4">
+
+                <!-- CERTIFICATE -->
+                <div class="col-lg-8 ">
+                    <div id="certificate" class="certificate mt-1 shadow-lg">
+                        <div class="top-gold"></div>
+                        <div class="left-shape"></div>
+                        <div class="right-shape"></div>
+
+
+                        <div class="cert-logo" style="height: 80px; width: 80px;">
+                            <img src="./../assets/img/logo.png" style="width: 100%; height: 100%;">
+                        </div>
+
+                        <div class="cert-title">
+                            <h1>CERTIFICATE</h1>
+                            <h4>OF ACHIEVEMENT</h4>
+                        </div>
+
+                        <div class="cert-body text-center">
+                            <p>This certificate is proudly presented to</p>
+                            <div class="cert-name" id="cName">Student Name</div>
+                            <p class="">for successfully completing the course</p>
+                            <div class="fw-semibold" id="cCourse">Course Name</div>
+                            <p class="mt-3">Issued on <span id="cDate">---</span></p>
+                        </div>
+
+                        <div class="cert-footer">
+                            <div class="sign">
+                                <img id="directorImg">
+                                <p>Director</p>
+                            </div>
+
+                            <div class="sign">
+                                <img id="ceoImg">
+                                <p>CEO</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- FORM -->
+                <div class="col-lg-4">
+                    <div class="form-card">
+                        <h5 class="mb-3">Generate Certificate</h5>
+
+                        <input class="form-control mb-2" id="studentName" placeholder="Student Name">
+                        <input class="form-control mb-2" id="courseName" placeholder="Course Name">
+                        <input class="form-control mb-2" id="issueDate" type="date">
+
+                        <label class="mt-2">Director Signature (PNG)</label>
+                        <input type="file" class="form-control mb-2" id="directorSign" accept="image/png">
+
+                        <label>CEO Signature (PNG)</label>
+                        <input type="file" class="form-control mb-3" id="ceoSign" accept="image/png">
+
+                        <button class="btn btn-primary w-100" onclick="generateCert()">Generate</button>
+                        <button class="btn btn-success w-100 mt-2" onclick="downloadPDF()">Download PDF</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </main>
+
+    <!-- html2canvas + jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        function generateCert() {
+            const name = studentName.value.trim();
+            const course = courseName.value.trim();
+            const date = issueDate.value;
+
+            if (!name || !course || !date) {
+                alert("Please fill all required fields");
+                return;
+            }
+
+            cName.innerText = name;
+            cCourse.innerText = course;
+            cDate.innerText = new Date(date).toLocaleDateString("en-IN");
+
+            loadImage("directorSign", "directorImg");
+            loadImage("ceoSign", "ceoImg");
+        }
+
+        function loadImage(inputId, imgId) {
+            const file = document.getElementById(inputId).files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = () => document.getElementById(imgId).src = reader.result;
+            reader.readAsDataURL(file);
+        }
+
+        // ✅ NEW PDF GENERATOR (NO DESIGN CHANGE)
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const certificate = document.getElementById("certificate");
+
+            const canvas = await html2canvas(certificate, {
+                scale: 4,
+                useCORS: true,
+                backgroundColor: "#ffffff"
+            });
+
+            const imgData = canvas.toDataURL("image/jpeg", 1.0);
+
+            const pdf = new jsPDF("landscape", "mm", [250, 154]);
+
+            pdf.addImage(
+                imgData,
+                "JPEG",
+                0,
+                0,
+                pdf.internal.pageSize.getWidth(),
+                pdf.internal.pageSize.getHeight()
+            );
+
+            pdf.save("certificate.pdf");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- main js link -->
+    <script src="./../assets/js/main.js"></script>
+
+</body>
+
+</html>

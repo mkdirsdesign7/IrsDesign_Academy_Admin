@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enquiries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+    <!-- Common Admin CSS -->
+    <link rel="stylesheet" href="./../assets/css/style.css">
+    <link rel="stylesheet" href="./../assets/css/quries.css">
+</head>
+
+<body>
+
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-sidebar-btn d-md-none" onclick="closeSidebar()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="sidebar-header">
+            <div class="logo-box"><img src="./../assets/img/logo.png" alt="logo" width="60px" height="60px"></div>
+            <div class="logo-text">
+                <p class="text-white ms-3 fs-5">Admin Panel</p>
+            </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSidebar()">
+            <i class="bi bi-chevron-left" id="toggleIcon"></i>
+        </button>
+
+        <nav class="sidebar-nav">
+            <a href="/dashboard.html" class="sidebar-link "><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+            <a href="./../students/students-list.html" class="sidebar-link"><i
+                    class="bi bi-people"></i><span>Students</span></a>
+            <a href="./../courses/courses-list.html" class="sidebar-link"><i
+                    class="bi bi-book"></i><span>Courses</span></a>
+            <a href="./../trainers/trainers-list.html" class="sidebar-link "><i
+                    class="bi bi-person-video2"></i><span>Teachers</span></a>
+            <a href="./../batches/batches-list.html" class="sidebar-link"><i
+                    class="bi bi-layers"></i><span>Batches</span></a>
+            <a href="./../attendance/attendance.html" class="sidebar-link"><i
+                    class="bi bi-calendar-check"></i><span>Attendance</span></a>
+            <a href="./../payment/payments-list.html" class="sidebar-link"><i
+                    class="bi bi-credit-card"></i><span>Payments</span></a>
+            <a href="./enquiries-list.html" class="sidebar-link active"><i
+                    class="bi bi-chat-left-dots"></i><span>Enquiries</span></a>
+            <a href="./../certificates/certificates.html" class="sidebar-link"><i
+                    class="bi bi-patch-check"></i><span>Certificates</span></a>
+            <a href="./../reports/reports.html" class="sidebar-link"><i
+                    class="fa-regular fa-chart-bar"></i><span>Reports</span></a>
+            <a href="./../settings/settings.html" class="sidebar-link"><i
+                    class="bi bi-gear"></i><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a class="sidebar-link"><i class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+        </div>
+    </aside>
+
+    <!-- NAVBAR -->
+    <header class="navbar-custom d-flex align-items-center justify-content-between">
+
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-light d-md-none bg-warning text-white fs-6" onclick="toggleSidebar()">
+                <i class="bi bi-list" id="toggleIcon"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold">Enquiries</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+            <div class="position-relative d-none d-md-block">
+                <i class="bi bi-search search-icon"></i>
+                <input class="form-control search-input" style="width:240px" placeholder="Search...">
+            </div>
+
+            <button class="btn btn-light position-relative">
+                <i class="bi bi-bell"></i>
+                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>
+            </button>
+
+            <div class="dropdown">
+                <button class="btn btn-light d-flex align-items-center gap-2" data-bs-toggle="dropdown">
+                    <div class="avatar">AD</div>
+                    <span class="d-none d-md-inline">Admin</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a href="./../admin-profile.html" class="dropdown-item text-success pointer">Profile</a></li>
+                    <li><a href="./../settings/settings.html" class="dropdown-item">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-danger">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="main-content">
+        <div class="container-fluid px-3 px-md-4 mt-4">
+
+            <!-- HEADER -->
+            <div class="d-flex flex-column flex-lg-row
+            justify-content-between
+            align-items-start align-items-lg-center
+            gap-3 mb-3 page-head">
+
+                <!-- LEFT : TITLE -->
+                <div class="text-center text-lg-start w-100">
+                    <h5 class="mb-1">Enquiries</h5>
+                    <p class="mb-0 text-muted">Manage student enquiries</p>
+                </div>
+
+                <!-- RIGHT : FILTER + BUTTON -->
+                <div class="d-flex flex-column flex-sm-row
+                gap-2
+                w-100 w-lg-auto">
+
+                    <select class="form-select form-select-sm w-100 w-sm-auto" style="min-width:180px">
+                        <option>All Status</option>
+                        <option>New</option>
+                        <option>Follow Up</option>
+                        <option>Closed</option>
+                    </select>
+
+                    <button class="btn btn-primary btn-md w-100 w-sm-auto" data-bs-toggle="modal"
+                        data-bs-target="#queryModal" style="min-width:220px">
+                        <i class="bi bi-plus-lg me-1"></i> Add Enquiry
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- ENQUIRIES TABLE -->
+            <div class="card-box attendance-card shadow-lg">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0" id="table-width">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>Course</th>
+                                <th>Source</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th class="text-end">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Rahul Kumar</td>
+                                <td>
+                                    <div>rahul@email.com</div>
+                                    <small class="text-muted">+91 98765 43210</small>
+                                </td>
+                                <td>Full Stack</td>
+                                <td>Website</td>
+                                <td>10 Jan 2025</td>
+                                <td><span class="status new">New</span></td>
+                                <td class="text-end">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link p-0" data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a href="./enquries-details.html"
+                                                    class="dropdown-item text-success">View</a></li>
+                                            <li><a class="dropdown-item text-danger">Close</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>Priya Sharma</td>
+                                <td>
+                                    <div>priya@email.com</div>
+                                    <small class="text-muted">+91 98765 43211</small>
+                                </td>
+                                <td>Python</td>
+                                <td>Walk-in</td>
+                                <td>09 Jan 2025</td>
+                                <td><span class="status follow">Follow Up</span></td>
+                                <td class="text-end">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link p-0" data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a href="./enquries-details.html"
+                                                    class="dropdown-item text-success">View</a></li>
+                                            <li><a class="dropdown-item text-danger">Close</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>Amit Singh</td>
+                                <td>
+                                    <div>amit@email.com</div>
+                                    <small class="text-muted">+91 98765 43212</small>
+                                </td>
+                                <td>React</td>
+                                <td>Facebook</td>
+                                <td>08 Jan 2025</td>
+                                <td><span class="status closed">Closed</span></td>
+                                <td class="text-end">
+                                    <a href="./enquries-details.html" class="btn btn-outline-secondary btn-sm">View</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>Sneha Patel</td>
+                                <td>
+                                    <div>sneha@email.com</div>
+                                    <small class="text-muted">+91 98765 43213</small>
+                                </td>
+                                <td>AWS</td>
+                                <td>Instagram</td>
+                                <td>07 Jan 2025</td>
+                                <td><span class="status new">New</span></td>
+                                <td class="text-end">
+                                    <a href="./enquries-details.html" class="btn btn-outline-primary btn-sm">View</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td>Vikram Reddy</td>
+                                <td>
+                                    <div>vikram@email.com</div>
+                                    <small class="text-muted">+91 98765 43214</small>
+                                </td>
+                                <td>Java</td>
+                                <td>Referral</td>
+                                <td>06 Jan 2025</td>
+                                <td><span class="status follow">Follow Up</span></td>
+                                <td class="text-end">
+                                    <a href="./enquries-details.html" class="btn btn-outline-primary btn-sm">View</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- add enquries modal popup -->
+
+    <div class="modal fade" id="queryModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Enquiry</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="queryForm" class="row g-3">
+
+                        <div class="col-md-6">
+                            <label class="form-label">Student Name</label>
+                            <input type="text" class="form-control" id="qName" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="qEmail">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="qPhone">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Course</label>
+                            <select class="form-select" id="qCourse">
+                                <option>Full Stack</option>
+                                <option>Python</option>
+                                <option>React</option>
+                                <option>Data Science</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Source</label>
+                            <select class="form-select" id="qSource">
+                                <option>Website</option>
+                                <option>Walk-in</option>
+                                <option>Phone</option>
+                                <option>Reference</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Status</label>
+                            <select class="form-select" id="qStatus">
+                                <option value="New">New</option>
+                                <option value="Follow Up">Follow Up</option>
+                                <option value="Closed">Closed</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" onclick="addQuery()">Add Enquiry</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- custom js link -->
+    <script src="./../assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enquiry Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- link of bootstrap css or icon -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- link of font-awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- custom css link -->
+    <link rel="stylesheet" href="./../assets/css/style.css">
+    <link rel="stylesheet" href="./../assets/css/quries.css">
+</head>
+
+<body>
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <!--============================= SIDEBAR ========================-->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-sidebar-btn d-md-none" onclick="closeSidebar()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="sidebar-header">
+            <div class="logo-box"><img src="./../assets/img/logo.png" alt="logo" width="60px" height="60px"></div>
+            <div class="logo-text">
+                <p class="text-white ms-3 fs-5">Admin Panel</p>
+            </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSidebar()">
+            <i class="bi bi-chevron-left" id="toggleIcon"></i>
+        </button>
+
+        <nav class="sidebar-nav">
+            <a href="/dashboard.html" class="sidebar-link "><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+            <a href="./../students/students-list.html" class="sidebar-link"><i
+                    class="bi bi-people"></i><span>Students</span></a>
+            <a href="./../courses/courses-list.html" class="sidebar-link"><i
+                    class="bi bi-book"></i><span>Courses</span></a>
+            <a href="./../trainers/trainers-list.html" class="sidebar-link "><i
+                    class="bi bi-person-video2"></i><span>Teachers</span></a>
+            <a href="./../batches/batches-list.html" class="sidebar-link"><i
+                    class="bi bi-layers"></i><span>Batches</span></a>
+            <a href="./../attendance/attendance.html" class="sidebar-link"><i
+                    class="bi bi-calendar-check"></i><span>Attendance</span></a>
+            <a href="./../payment/payments-list.html" class="sidebar-link"><i
+                    class="bi bi-credit-card"></i><span>Payments</span></a>
+            <a href="./enquiries-list.html" class="sidebar-link active"><i
+                    class="bi bi-chat-left-dots"></i><span>Enquiries</span></a>
+            <a href="./../certificates/certificates.html" class="sidebar-link"><i
+                    class="bi bi-patch-check"></i><span>Certificates</span></a>
+            <a href="./../reports/reports.html" class="sidebar-link"><i
+                    class="fa-regular fa-chart-bar"></i><span>Reports</span></a>
+            <a href="./../settings/settings.html" class="sidebar-link"><i
+                    class="bi bi-gear"></i><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a class="sidebar-link"><i class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+        </div>
+    </aside>
+
+    <!--============================= NAVBAR ============================== -->
+    <header class="navbar-custom d-flex align-items-center justify-content-between">
+
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-light d-md-none bg-warning text-white fs-6" onclick="toggleSidebar()">
+                <i class="bi bi-list" id="toggleIcon"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold">Enquiries</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+            <div class="position-relative d-none d-md-block">
+                <i class="bi bi-search search-icon"></i>
+                <input class="form-control search-input" style="width:240px" placeholder="Search...">
+            </div>
+
+            <button class="btn btn-light position-relative">
+                <i class="bi bi-bell"></i>
+                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>
+            </button>
+
+            <div class="dropdown">
+                <button class="btn btn-light d-flex align-items-center gap-2" data-bs-toggle="dropdown">
+                    <div class="avatar">AD</div>
+                    <span class="d-none d-md-inline">Admin</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a href="./../admin-profile.html" class="dropdown-item text-success pointer">Profile</a></li>
+                    <li><a href="./../settings/settings.html" class="dropdown-item">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-danger">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- =================enquries detail ======================= -->
+    <main class="main-content">
+        <div class="container py-4">
+
+            <!-- BACK -->
+            <button class="btn btn-outline-secondary mb-3" onclick="history.back()">
+                <i class="bi bi-arrow-left"></i> Back
+            </button>
+
+            <!-- HEADER -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5>Enquiry Details</h5>
+                <span class="status follow">Follow Up</span>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- LEFT -->
+                <div class="col-lg-8">
+
+                    <!-- STUDENT INFO -->
+                    <div class="detail-card mb-4 shadow-lg">
+                        <h6 class="mb-3">Student Information</h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="label">Name</div>
+                                <div class="value">Priya Sharma</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="label">Email</div>
+                                <div class="value">priya@email.com</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="label">Phone</div>
+                                <div class="value">+91 98765 43211</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="label">Source</div>
+                                <div class="value">Walk-in</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COURSE -->
+                    <div class="detail-card mb-4 shadow-lg">
+                        <h6 class="mb-3">Course Interest</h6>
+                        <p class="mb-1"><strong>Course:</strong> Python Development</p>
+                        <p class="mb-1"><strong>Preferred Time:</strong> Evening</p>
+                        <p class="mb-0"><strong>Expected Join:</strong> Feb 2025</p>
+                    </div>
+
+                    <!-- MESSAGE -->
+                    <div class="detail-card shadow-lg">
+                        <h6 class="mb-3">Student Message</h6>
+                        <p class="text-muted mb-0">
+                            I want to know about Python course fees and batch timings.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT -->
+                <div class="col-lg-4">
+
+                    <!-- ACTIONS -->
+                    <div class="detail-card mb-4 shadow-lg">
+                        <h6 class="mb-3">Actions</h6>
+                        <div class="d-grid gap-2">
+                            <a href="tel:+919876543211" class="btn btn-outline-primary">
+                                <i class="bi bi-telephone"></i> Call Student
+                            </a>
+                            <button class="btn btn-warning">
+                                <i class="bi bi-clock"></i> Mark Follow-up
+                            </button>
+                            <button class="btn btn-danger">
+                                <i class="bi bi-x-circle"></i> Close Enquiry
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- NOTES -->
+                    <div class="detail-card shadow-lg">
+                        <h6 class="mb-3">Admin Notes</h6>
+                        <textarea class="form-control" rows="4" placeholder="Add internal notes..."></textarea>
+                        <a href="" class="btn btn-outline-primary mt-3">
+                            Send Message <i class="bi bi-send"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- custom js link -->
+    <script src="./../assets/js/main.js"></script>
+</body>
+
+</html>

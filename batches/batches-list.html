@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+    <!-- cusom css link -->
+    <link rel="stylesheet" href="./../assets/css/style.css">
+
+    <style>
+        body {
+            background: #f8fafc;
+        }
+
+        /* PAGE HEADER */
+        .page-head h5 {
+            font-weight: 600;
+        }
+
+        .page-head p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* CARD */
+        .batches-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            padding: 16px;
+            height: 100%;
+        }
+
+        /* AVATAR */
+        .batches-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #eef2ff;
+            color: #4f46e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* META */
+        .meta {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* STATUS */
+        .status {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 20px;
+        }
+
+        .active {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .inactive {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-sidebar-btn d-md-none" onclick="closeSidebar()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="sidebar-header">
+            <div class="logo-box"><img src="./../assets/img/logo.png" alt="logo" width="60px" height="60px"></div>
+            <div class="logo-text">
+                <p class="text-white ms-3 fs-5">Admin Panel</p>
+            </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSidebar()">
+            <i class="bi bi-chevron-left" id="toggleIcon"></i>
+        </button>
+
+        <nav class="sidebar-nav">
+            <a href="./../dashboard.html" class="sidebar-link "><i
+                    class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+            <a href="./../students/students-list.html" class="sidebar-link"><i
+                    class="bi bi-people"></i><span>Students</span></a>
+            <a href="./../courses/courses-list.html" class="sidebar-link"><i
+                    class="bi bi-book"></i><span>Courses</span></a>
+            <a href="./../trainers/trainers-list.html" class="sidebar-link "><i
+                    class="bi bi-person-video2"></i><span>Teachers</span></a>
+            <a href="./batches-list.html" class="sidebar-link active"><i
+                    class="bi bi-layers"></i><span>Batches</span></a>
+            <a href="./../attendance/attendance.html" class="sidebar-link"><i
+                    class="bi bi-calendar-check"></i><span>Attendance</span></a>
+            <a href="./../payment/payments-list.html" class="sidebar-link"><i
+                    class="bi bi-credit-card"></i><span>Payments</span></a>
+            <a href="./../enquiries/enquiries-list.html" class="sidebar-link"><i
+                    class="bi bi-chat-left-dots"></i><span>Enquiries</span></a>
+            <a href="./../certificates/certificates.html" class="sidebar-link"><i
+                    class="bi bi-patch-check"></i><span>Certificates</span></a>
+            <a href="./../reports/reports.html" class="sidebar-link"><i
+                    class="fa-regular fa-chart-bar"></i><span>Reports</span></a>
+            <a href="./../settings/settings.html" class="sidebar-link"><i
+                    class="bi bi-gear"></i><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a class="sidebar-link"><i class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+        </div>
+    </aside>
+
+    <!-- NAVBAR -->
+    <header class="navbar-custom d-flex align-items-center justify-content-between">
+
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-light d-md-none bg-warning text-white fs-6" onclick="toggleSidebar()">
+                <i class="bi bi-list" id="toggleIcon"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold">Batches</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+            <div class="position-relative d-none d-md-block">
+                <i class="bi bi-search search-icon"></i>
+                <input class="form-control search-input" style="width:240px" placeholder="Search...">
+            </div>
+
+            <button class="btn btn-light position-relative">
+                <i class="bi bi-bell"></i>
+                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>
+            </button>
+
+            <div class="dropdown">
+                <button class="btn btn-light d-flex align-items-center gap-2" data-bs-toggle="dropdown">
+                    <div class="avatar">AD</div>
+                    <span class="d-none d-md-inline">Admin</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a href="./../dashboard.html" class="dropdown-item text-success pointer">Profile</a></li>
+                    <li><a href="./../settings/settings.html" class="dropdown-item">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-danger">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="main-content">
+        <!-- BATCHES GRID (BATCHES STYLE) -->
+
+        <div class="container-fluid px-3 px-md-4 mt-4">
+            <!-- HEADER -->
+            <div class="d-flex justify-content-between align-items-center mb-3 page-head">
+                <div>
+                    <h5>Batches</h5>
+                    <p>Manage your Batches</p>
+                </div>
+                <button class="btn btn-primary btn-md btn-sm-sm" onclick="openAddBatch()">
+                    <i class="bi bi-plus-lg"></i> Add Batches
+                </button>
+            </div>
+
+            <!-- SEARCH -->
+            <input type="text" class="form-control mb-4 shadow-lg" placeholder="Search teachers...">
+
+            <div class="row g-4">
+
+                <!-- BATCH CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="batches-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="batches-avatar">FA</div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown"
+                                    style="cursor:pointer;">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./batches-details.html" class="dropdown-item text-success">View</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditBatch(this)">Edit</a></li>
+                                    <li><a class="dropdown-item text-danger">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">Full Stack – Batch A</h6>
+                        <p class="meta mb-2">React + Node.js (Morning)</p>
+
+                        <ul class="meta mb-3">
+                            <li>Start: 10 Jan 2025</li>
+                            <li>Duration: 6 Months</li>
+                            <li>Trainer: Rahul Kumar</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">18 / 25 students</small>
+                            <span class="status active">Running</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- BATCH CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="batches-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="batches-avatar">PB</div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./batches-details.html" class="dropdown-item text-success">View</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditBatch(this)">Edit</a></li>
+                                    <li><a class="dropdown-item text-danger">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">Python – Batch B</h6>
+                        <p class="meta mb-2">Core Python (Evening)</p>
+
+                        <ul class="meta mb-3">
+                            <li>Start: 18 Jan 2025</li>
+                            <li>Duration: 3 Months</li>
+                            <li>Trainer: Priya Sharma</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">22 / 30 students</small>
+                            <span class="status active">Running</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- BATCH CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="batches-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="batches-avatar">DS</div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./batches-details.html" class="dropdown-item text-success">View</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditBatch(this)">Edit</a></li>
+                                    <li><a class="dropdown-item text-danger">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">Data Science – Batch C</h6>
+                        <p class="meta mb-2">ML & AI (Weekend)</p>
+
+                        <ul class="meta mb-3">
+                            <li>Start: 1 Feb 2025</li>
+                            <li>Duration: 5 Months</li>
+                            <li>Trainer: Amit Singh</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">10 / 20 students</small>
+                            <span class="status draft">Upcoming</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- BATCH CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="batches-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="batches-avatar">AW</div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./batches-details.html" class="dropdown-item text-success">View</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditBatch(this)">Edit</a></li>
+                                    <li><a class="dropdown-item text-danger">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">AWS – Batch D</h6>
+                        <p class="meta mb-2">Cloud & DevOps</p>
+
+                        <ul class="meta mb-3">
+                            <li>Start: 5 Feb 2025</li>
+                            <li>Duration: 4 Months</li>
+                            <li>Trainer: Radhika Gupta</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">15 / 25 students</small>
+                            <span class="status active">Running</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- BATCH CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="batches-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="batches-avatar">UX</div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./batches-details.html" class="dropdown-item text-success">View</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditBatch(this)">Edit</a></li>
+                                    <li><a class="dropdown-item text-danger">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">UI/UX – Batch E</h6>
+                        <p class="meta mb-2">Figma & Design Systems</p>
+
+                        <ul class="meta mb-3">
+                            <li>Start: 20 Jan 2025</li>
+                            <li>Duration: 2 Months</li>
+                            <li>Trainer: Sneha Patel</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">20 / 20 students</small>
+                            <span class="status inactive">Completed</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <!-- ADD AND EDIT MODAL POPUP -->
+    <div class="modal fade" id="batchModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="batchModalTitle">Add Batch</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label>Batch Name</label>
+                        <input type="text" class="form-control" id="bName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Course / Tech</label>
+                        <input type="text" class="form-control" id="bTech">
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label>Start Month</label>
+                            <input type="text" class="form-control" id="bStart">
+                        </div>
+                        <div class="col-6">
+                            <label>Duration</label>
+                            <input type="text" class="form-control" id="bDuration">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mt-2">
+                        <div class="col-6">
+                            <label>Trainer</label>
+                            <input type="text" class="form-control" id="bTrainer">
+                        </div>
+                        <div class="col-6">
+                            <label>Status</label>
+                            <select class="form-select" id="bStatus">
+                                <option>Running</option>
+                                <option>Completed</option>
+                                <option>Upcoming</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mt-2">
+                        <div class="col-6">
+                            <label>Current Students</label>
+                            <input type="number" class="form-control" id="bCurrent">
+                        </div>
+                        <div class="col-6">
+                            <label>Total Capacity</label>
+                            <input type="number" class="form-control" id="bTotal">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" onclick="saveBatch()">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const batchModal = new bootstrap.Modal(
+            document.getElementById("batchModal")
+        );
+
+        let currentBatchCard = null;
+
+        /* ADD BATCH */
+        function openAddBatch() {
+            batchModalTitle.innerText = "Add Batch";
+            document.querySelectorAll("#batchModal input").forEach(i => i.value = "");
+            bStatus.value = "Running";
+            currentBatchCard = null;
+            batchModal.show();
+        }
+
+        /* EDIT BATCH */
+        function openEditBatch(btn) {
+
+            // ✅ FIX 1: correct card class
+            const card = btn.closest(".batches-card");
+            if (!card) {
+                console.error("Batch card not found");
+                return;
+            }
+
+            batchModalTitle.innerText = "Edit Batch";
+
+            // ✅ FIX 2: correct selectors based on your HTML
+            bName.value = card.querySelector("h6").innerText;
+            bTech.value = card.querySelector("p.meta").innerText;
+
+            const metaList = card.querySelectorAll("ul.meta li");
+
+            bStart.value = metaList[0].innerText.replace("Start: ", "");
+            bDuration.value = metaList[1].innerText.replace("Duration: ", "");
+            bTrainer.value = metaList[2].innerText.replace("Trainer: ", "");
+
+            const students = card.querySelector("small").innerText.split("/");
+            bCurrent.value = students[0].trim();
+            bTotal.value = students[1].replace(" students", "").trim();
+
+            bStatus.value = card.querySelector(".status").innerText.trim();
+
+            currentBatchCard = card;
+            batchModal.show(); // ✅ NOW MODAL OPENS
+        }
+
+        /* SAVE BATCH (EDIT ONLY – SAFE) */
+        function saveBatch() {
+
+            if (!currentBatchCard) {
+                alert("Add logic not implemented yet");
+                return;
+            }
+
+            const card = currentBatchCard;
+
+            card.querySelector("h6").innerText = bName.value;
+            card.querySelector("p.meta").innerText = bTech.value;
+
+            const metaList = card.querySelectorAll("ul.meta li");
+            metaList[0].innerText = "Start: " + bStart.value;
+            metaList[1].innerText = "Duration: " + bDuration.value;
+            metaList[2].innerText = "Trainer: " + bTrainer.value;
+
+            card.querySelector("small").innerText =
+                `${bCurrent.value} / ${bTotal.value} students`;
+
+            const status = card.querySelector(".status");
+            status.innerText = bStatus.value;
+            status.className = "status " + (
+                bStatus.value === "Running" ? "active" :
+                    bStatus.value === "Completed" ? "inactive" : "active"
+            );
+
+            batchModal.hide();
+        }
+    </script>
+
+
+    <!-- main js link -->
+    <script src="./../assets/js/main.js"></script>
+
+</body>
+
+</html>

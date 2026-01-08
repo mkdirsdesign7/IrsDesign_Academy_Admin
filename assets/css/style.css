@@ -1,0 +1,347 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* ===== HIDE SIDEBAR SCROLLBAR (KEEP SCROLL WORKING) ===== */
+
+/* Chrome, Edge, Safari */
+.sidebar-nav::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+/* Firefox */
+.sidebar-nav {
+    scrollbar-width: none;
+    /* hide scrollbar */
+}
+
+/* IE / old Edge (safe) */
+.sidebar-nav {
+    -ms-overflow-style: none;
+}
+
+
+
+
+/* ============================================================= 
+                        Header Section  Css
+================================================================ */
+
+:root {
+    --sidebar-bg: black;
+    --sidebar-border: #1e293b;
+    --sidebar-text: #e5e7eb;
+    --sidebar-muted: #14B8A6;
+    --primary: #6366f1;
+    --danger: #ef4444;
+    --orange: orange;
+    --yellow: yellow;
+}
+
+/* ===== BASE ===== */
+body {
+    margin: 0;
+    background-color: #e4f6ff !important;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    background: var(--sidebar-muted);
+    display: flex;
+    flex-direction: column;
+    transition: all .3s ease;
+    z-index: 1050;
+}
+
+.sidebar.collapsed {
+    width: 80px
+}
+
+/* Header */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border-bottom: 1px solid var(--sidebar-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+
+}
+
+.logo-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.logo-text h5 {
+    margin: 0;
+    color: #fff;
+    font-size: 18px
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--sidebar-muted)
+}
+
+/* Toggle */
+.toggle-btn {
+    position: absolute;
+    right: -12px;
+    top: 67px;
+    width: 35px;
+    height: 35px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+}
+
+/* Menu */
+.sidebar-nav {
+    flex: 1;
+    padding: 15px 10px;
+    overflow-y: auto;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    color: var(--sidebar-text);
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sidebar-link:hover {
+    background: #F9B217;
+    cursor: pointer;
+    width: 110% !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sidebar-link.active {
+    background: #e4f6ff;
+    color: #000;
+    width: 110%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.sidebar-link i {
+    font-size: 18px;
+    min-width: 20px
+}
+
+/* Footer */
+.sidebar-footer {
+    padding: 12px;
+    border-top: 1px solid var(--sidebar-border);
+    box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.15);
+
+}
+
+.sidebar-footer .sidebar-link {
+    color: var(--danger);
+    font-weight: 700;
+}
+
+/* Collapse text */
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed span {
+    display: none
+}
+
+.sidebar.collapsed .sidebar-link {
+    justify-content: center
+}
+
+/* ===== NAVBAR ===== */
+.navbar-custom {
+    height: 64px;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0 24px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 260px;
+    transition: .3s;
+    z-index: 1040;
+}
+
+.sidebar.collapsed~.navbar-custom {
+    left: 80px
+}
+
+/* ===== CONTENT ===== */
+.main-content {
+    margin-top: 64px;
+    margin-left: 260px;
+    padding: 24px;
+    transition: .3s;
+
+}
+
+.sidebar.collapsed~.main-content {
+    margin-left: 80px
+}
+
+/* ================== SEARCH + AVATAR ===================== */
+.navbar-custom {
+    background-color: #F9B217;
+    box-shadow: rgba(230, 181, 48, 0.575) 0px 5px 15px;
+}
+
+.search-input {
+    padding-left: 38px;
+    background: #f1f5f9;
+    border: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ===== MOBILE ===== */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .4);
+    display: none;
+    z-index: 1030;
+}
+
+
+
+/* ===== RESPONSIVE SIDEBAR (MD & BELOW) ===== */
+@media (max-width: 768px) {
+
+    .sidebar {
+        left: -260px;
+        width: 260px;
+        transition: 0.3s;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .navbar-custom {
+        left: 0 !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+    }
+
+    .toggle-btn {
+        display: none;
+    }
+
+    .overlay.show {
+        display: block;
+    }
+}
+
+
+/* ===== CLOSE BUTTON (MOBILE ONLY) ===== */
+.close-sidebar-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    z-index: 1100;
+    cursor: pointer;
+}
+
+
+.table-responsive {
+    border-radius: 16px !important;
+}
+
+
+table {
+    border-radius: 16px !important;
+}
+
+input {
+    border-radius: 16px !important;
+    border: 1px solid orange !important;
+}
+
+select {
+    border-radius: 16px !important;
+    border: 1px solid orange !important;
+}
+
+option {
+    border-radius: 16px !important;
+
+}
+
+.badge-status {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+
+
+/* =================ALL TABLE MEDIA QUARIES =================== */
+
+@media screen and (max-width: 1080px) {
+    .table-responsive {
+        overflow-x: auto !important;
+    }
+
+    .table {
+        min-width: 900px !important;   
+        white-space: nowrap !important; 
+    }
+
+    .table th,
+    .table td {
+        white-space: nowrap !important;    
+    }
+}

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+    <!-- cusom css link -->
+    <link rel="stylesheet" href="./../assets/css/style.css">
+
+    <style>
+        body {
+            background: #f8fafc;
+        }
+
+        /* PAGE HEADER */
+        .page-head h5 {
+            font-weight: 600;
+        }
+
+        .page-head p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* CARD */
+        .teacher-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            padding: 16px;
+            height: 100%;
+        }
+
+        /* AVATAR */
+        .teacher-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #eef2ff;
+            color: #4f46e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* META */
+        .meta {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* STATUS */
+        .status {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 20px;
+        }
+
+        .active {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .inactive {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-sidebar-btn d-md-none" onclick="closeSidebar()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="sidebar-header">
+            <div class="logo-box"><img src="./../assets/img/logo.png" alt="logo" width="60px" height="60px"></div>
+            <div class="logo-text">
+                <p class="text-white ms-3 fs-5">Admin Panel</p>
+            </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSidebar()">
+            <i class="bi bi-chevron-left" id="toggleIcon"></i>
+        </button>
+
+        <nav class="sidebar-nav">
+            <a href="/dashboard.html" class="sidebar-link "><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+            <a href="./../students/students-list.html" class="sidebar-link"><i
+                    class="bi bi-people"></i><span>Students</span></a>
+            <a href="./../courses/courses-list.html" class="sidebar-link"><i
+                    class="bi bi-book"></i><span>Courses</span></a>
+            <a href="./trainers-list.html" class="sidebar-link active"><i
+                    class="bi bi-person-video2"></i><span>Teachers</span></a>
+            <a href="./../batches/batches-list.html" class="sidebar-link"><i
+                    class="bi bi-layers"></i><span>Batches</span></a>
+            <a href="./../attendance/attendance.html" class="sidebar-link"><i
+                    class="bi bi-calendar-check"></i><span>Attendance</span></a>
+            <a href="./../payment/payments-list.html" class="sidebar-link"><i
+                    class="bi bi-credit-card"></i><span>Payments</span></a>
+            <a href="./../enquiries/enquiries-list.html" class="sidebar-link"><i
+                    class="bi bi-chat-left-dots"></i><span>Enquiries</span></a>
+            <a href="./../certificates/certificates.html" class="sidebar-link"><i
+                    class="bi bi-patch-check"></i><span>Certificates</span></a>
+            <a href="./../reports/reports.html" class="sidebar-link"><i
+                    class="fa-regular fa-chart-bar"></i><span>Reports</span></a>
+            <a href="./../settings/settings.html" class="sidebar-link"><i
+                    class="bi bi-gear"></i><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a class="sidebar-link"><i class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+        </div>
+    </aside>
+
+    <!-- NAVBAR -->
+    <header class="navbar-custom d-flex align-items-center justify-content-between">
+
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-light d-md-none bg-warning text-white fs-6" onclick="toggleSidebar()">
+                <i class="bi bi-list" id="toggleIcon"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold">Teachers</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+            <div class="position-relative d-none d-md-block">
+                <i class="bi bi-search search-icon"></i>
+                <input class="form-control search-input" style="width:240px" placeholder="Search...">
+            </div>
+
+            <button class="btn btn-light position-relative">
+                <i class="bi bi-bell"></i>
+                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>
+            </button>
+
+            <div class="dropdown">
+                <button class="btn btn-light d-flex align-items-center gap-2" data-bs-toggle="dropdown">
+                    <div class="avatar">AD</div>
+                    <span class="d-none d-md-inline">Admin</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a href="./../admin-profile.html" class="dropdown-item text-success pointer">Profile</a></li>
+                    <li><a href="./../settings/settings.html" class="dropdown-item">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-danger">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="main-content">
+        <div class="container-fluid px-3 px-md-4 mt-4">
+
+            <!-- HEADER -->
+            <div class="d-flex flex-column flex-lg-row
+            justify-content-between
+            align-items-start align-items-lg-center
+            gap-3 mb-3 page-head">
+
+                <!-- LEFT : TITLE -->
+                <div class="text-center text-lg-start w-100">
+                    <h5 class="mb-1">Teachers</h5>
+                    <p class="mb-0 text-muted">Manage your teaching staff</p>
+                </div>
+
+                <!-- RIGHT : BUTTON -->
+                <div class="w-100 w-lg-auto">
+                    <button class="btn btn-primary btn-md w-100 w-lg-auto" style="min-width:220px"
+                        onclick="openAddInstructor()">
+                        <i class="bi bi-plus-lg me-1"></i> Add Teacher
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+            <input type="text" class="form-control mb-4 shadow-lg" placeholder="Search teachers...">
+
+            <!-- GRID -->
+            <div class="row g-4">
+
+                <!-- TEACHER CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="teacher-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="teacher-avatar">RK</div>
+
+                            <!-- DROPDOWN -->
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown"
+                                    style="cursor:pointer;">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./trainer-profile.html" class="dropdown-item text-success">View
+                                            Profile</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditInstructor(this)">Edit</a></li>
+                                    <li><a class="dropdown-item text-danger">Remove</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">Rahul Kumar</h6>
+                        <p class="meta mb-2">Full Stack Instructor</p>
+
+                        <ul class="meta mb-3">
+                            <li>5+ Years Experience</li>
+                            <li>4 Active Batches</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">120 students</small>
+                            <span class="status active">Active</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TEACHER CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="teacher-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="teacher-avatar">PS</div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown"
+                                    style="cursor:pointer;">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./trainer-profile.html" class="dropdown-item text-success">View
+                                            Profile</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditInstructor(this)">Edit</a></li>
+                                    <li><a class="dropdown-item text-danger">Remove</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">Priya Sharma</h6>
+                        <p class="meta mb-2">Python Trainer</p>
+
+                        <ul class="meta mb-3">
+                            <li>3+ Years Experience</li>
+                            <li>3 Active Batches</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">95 students</small>
+                            <span class="status active">Active</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TEACHER CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="teacher-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="teacher-avatar">AS</div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown"
+                                    style="cursor:pointer;">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./trainer-profile.html"
+                                            class="dropdown-item text-success cursor-pointer">View Profile</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditInstructor(this)">Edit</a>
+
+                                    </li>
+                                    <li><a class="dropdown-item text-danger cursor-pointer">Remove</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">Amit Singh</h6>
+                        <p class="meta mb-2">React.js Mentor</p>
+
+                        <ul class="meta mb-3">
+                            <li>2+ Years Experience</li>
+                            <li>2 Active Batches</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">60 students</small>
+                            <span class="status inactive">Inactive</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TEACHER CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="teacher-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="teacher-avatar">AS</div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown"
+                                    style="cursor:pointer;">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./trainer-profile.html"
+                                            class="dropdown-item text-success cursor-pointer">View Profile</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditInstructor(this)">Edit</a>
+
+                                    </li>
+                                    <li><a class="dropdown-item text-danger cursor-pointer">Remove</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">Amit Singh</h6>
+                        <p class="meta mb-2">React.js Mentor</p>
+
+                        <ul class="meta mb-3">
+                            <li>2+ Years Experience</li>
+                            <li>2 Active Batches</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">60 students</small>
+                            <span class="status inactive">Inactive</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TEACHER CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="teacher-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="teacher-avatar">AS</div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown"
+                                    style="cursor:pointer;">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./trainer-profile.html"
+                                            class="dropdown-item text-success cursor-pointer">View Profile</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditInstructor(this)">Edit</a>
+
+                                    </li>
+                                    <li><a class="dropdown-item text-danger cursor-pointer">Remove</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">Amit Singh</h6>
+                        <p class="meta mb-2">React.js Mentor</p>
+
+                        <ul class="meta mb-3">
+                            <li>2+ Years Experience</li>
+                            <li>2 Active Batches</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">60 students</small>
+                            <span class="status inactive">Inactive</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TEACHER CARD -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="teacher-card shadow-lg">
+
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="teacher-avatar">RG</div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-link text-dark p-0" data-bs-toggle="dropdown"
+                                    style="cursor:pointer;">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="./trainer-profile.html"
+                                            class="dropdown-item text-success cursor-pointer">View Profile</a></li>
+                                    <li><a class="dropdown-item" onclick="openEditInstructor(this)">Edit</a>
+
+                                    </li>
+                                    <li><a class="dropdown-item text-danger cursor-pointer">Remove</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-semibold mb-1">Radhika Gupta</h6>
+                        <p class="meta mb-2">Frntend Design Mentor</p>
+
+                        <ul class="meta mb-3">
+                            <li>2+ Years Experience</li>
+                            <li>2 Active Batches</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">60 students</small>
+                            <span class="status active">active</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- ADD AND EDIT INSTURCTOR -->
+    <div class="modal fade" id="instructorModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Add Instructor</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <input type="hidden" id="editCard">
+
+                    <div class="mb-3">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="iName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Designation</label>
+                        <input type="text" class="form-control" id="iRole">
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label>Experience (Years)</label>
+                            <input type="number" class="form-control" id="iExp">
+                        </div>
+                        <div class="col-6">
+                            <label>Active Batches</label>
+                            <input type="number" class="form-control" id="iBatch">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mt-2">
+                        <div class="col-6">
+                            <label>Students</label>
+                            <input type="number" class="form-control" id="iStudents">
+                        </div>
+                        <div class="col-6">
+                            <label>Status</label>
+                            <select class="form-select" id="iStatus">
+                                <option>Active</option>
+                                <option>Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" onclick="saveInstructor()">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- main js link -->
+    <script src="./../assets/js/main.js"></script>
+
+    <script>
+        const modal = new bootstrap.Modal(
+            document.getElementById("instructorModal")
+        );
+
+        function openAddInstructor() {
+            modalTitle.innerText = "Add Instructor";
+            document.querySelectorAll("#instructorModal input").forEach(i => i.value = "");
+            iStatus.value = "Active";
+            editCard.value = "";
+            modal.show();
+        }
+
+        let currentEditCard = null;
+
+        function openEditInstructor(btn) {
+
+            const card = btn.closest(".teacher-card");
+            if (!card) return;
+
+            modalTitle.innerText = "Edit Instructor";
+
+            document.getElementById("iName").value =
+                card.querySelector("h6").innerText;
+
+            document.getElementById("iRole").value =
+                card.querySelector(".meta").innerText;
+
+            document.getElementById("iExp").value =
+                card.querySelectorAll(".meta li")[0].innerText.replace(/\D/g, "");
+
+            document.getElementById("iBatch").value =
+                card.querySelectorAll(".meta li")[1].innerText.replace(/\D/g, "");
+
+            document.getElementById("iStudents").value =
+                card.querySelector("small").innerText.replace(/\D/g, "");
+
+            document.getElementById("iStatus").value =
+                card.querySelector(".status").innerText.trim();
+
+            modal.show();
+        }
+
+    </script>
+
+
+</body>
+
+</html>

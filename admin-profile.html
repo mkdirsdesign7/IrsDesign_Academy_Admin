@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- link of custom css -->
+    <link rel="stylesheet" href="./assets/css/adminProfile.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+
+<body>
+
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-sidebar-btn d-md-none" onclick="closeSidebar()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="sidebar-header">
+            <div class="logo-box"><img src="././assets/img/logo.png" alt="logo" width="60px" height="60px"></div>
+            <div class="logo-text">
+                <p class="text-white ms-3 fs-5">Admin Panel</p>
+            </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSidebar()">
+            <i class="bi bi-chevron-left" id="toggleIcon"></i>
+        </button>
+
+        <nav class="sidebar-nav">
+            <a href="/dashboard.html" class="sidebar-link active"><i
+                    class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+            <a href="./students/students-list.html" class="sidebar-link"><i
+                    class="bi bi-people"></i><span>Students</span></a>
+            <a href="./courses/courses-list.html" class="sidebar-link"><i
+                    class="bi bi-book"></i><span>Courses</span></a>
+            <a href="./trainers/trainers-list.html" class="sidebar-link"><i
+                    class="bi bi-person-video2"></i><span>Teachers</span></a>
+            <a href="./batches/batches-list.html" class="sidebar-link"><i
+                    class="bi bi-layers"></i><span>Batches</span></a>
+            <a href="./attendance/attendance.html" class="sidebar-link"><i
+                    class="bi bi-calendar-check"></i><span>Attendance</span></a>
+            <a href="./payment/payments-list.html" class="sidebar-link"><i
+                    class="bi bi-credit-card"></i><span>Payments</span></a>
+            <a href="././enquiries/enquiries-list.html" class="sidebar-link"><i
+                    class="bi bi-chat-left-dots"></i><span>Enquiries</span></a>
+            <a href="././certificates/certificates.html" class="sidebar-link"><i
+                    class="bi bi-patch-check"></i><span>Certificates</span></a>
+            <a href="./reports/reports.html" class="sidebar-link"><i
+                    class="fa-regular fa-chart-bar"></i><span>Reports</span></a>
+            <a href="././settings/settings.html" class="sidebar-link"><i
+                    class="bi bi-gear"></i><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a class="sidebar-link"><i class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+        </div>
+    </aside>
+
+    <!-- NAVBAR -->
+    <header class="navbar-custom d-flex align-items-center justify-content-between">
+
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-light d-md-none bg-warning text-white fs-6" onclick="toggleSidebar()">
+                <i class="bi bi-list" id="toggleIcon"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold">Dashboard</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+            <div class="position-relative d-none d-md-block">
+                <i class="bi bi-search search-icon"></i>
+                <input class="form-control search-input" style="width:240px" placeholder="Search...">
+            </div>
+
+            <button class="btn btn-light position-relative">
+                <i class="bi bi-bell"></i>
+                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>
+            </button>
+
+            <div class="dropdown">
+                <button class="btn btn-light d-flex align-items-center gap-2" data-bs-toggle="dropdown">
+                    <div class="avatar">AD</div>
+                    <span class="d-none d-md-inline">Admin</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a href="./admin-profile.html" class="dropdown-item text-success pointer">Profile</a></li>
+                    <li><a href="./settings/settings.html" class="dropdown-item">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-danger">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!--======================= profile of admin area ====================== -->
+    <main class="main-content">
+        <div class="container py-4">
+
+            <!-- BACK BUTTON -->
+            <button class="btn btn-outline-secondary back-btn mb-3" onclick="history.back()">
+                <i class="bi bi-arrow-left"></i> Back
+            </button>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+
+                    <!-- PROFILE CARD -->
+                    <div class="profile-card">
+
+                        <!-- HEADER -->
+                        <div class="text-center mb-4">
+                            <div class="avatar-box mb-3">
+                                <img src="https://i.imgur.com/6VBx3io.png" id="profileImg">
+                                <label class="edit-avatar">
+                                    <i class="bi bi-camera"></i>
+                                    <input type="file" hidden accept="image/*" onchange="previewImage(event)">
+                                </label>
+                            </div>
+
+                            <h5 class="mb-1">Admin</h5>
+                            <p class="text-muted mb-2">System Administrator</p>
+                            <span class="status">Active</span>
+                        </div>
+
+                        <!-- DETAILS -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="info-label">Full Name</div>
+                                <div class="info-value">Admin User</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-label">Email</div>
+                                <div class="info-value">admin@itacademy.com</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-label">Phone</div>
+                                <div class="info-value">+91 98765 43210</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-label">Role</div>
+                                <div class="info-value">Super Admin</div>
+                            </div>
+                        </div>
+
+                        <!-- ACTIONS -->
+                        <div class="d-flex justify-content-end gap-2">
+                            <button class="btn btn-outline-primary action-btn" data-bs-toggle="modal"
+                                data-bs-target="#editProfileModal">
+                                <i class="bi bi-pencil"></i> Edit Profile
+                            </button>
+                            <button class="btn btn-primary action-btn">
+                                <a href="./settings/settings.html" class="text-white text-decoration-none"><i
+                                        class="bi bi-shield-lock"></i> Change Password</a>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- EDIT PROFILE OF ADMIN -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <!-- Modal Header -->
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-semibold">Edit Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body px-4">
+
+                    <!-- Profile Image -->
+                    <div class="text-center mb-4">
+                        <div class="position-relative d-inline-block">
+                            <img src="https://via.placeholder.com/120"
+                                class="rounded-circle border border-3 border-warning" width="120" height="120">
+
+                            <label
+                                class="position-absolute bottom-0 end-0 bg-warning rounded-circle p-2 cursor-pointer">
+                                <i class="bi bi-camera text-dark"></i>
+                                <input type="file" hidden>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" value="Admin User">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" value="admin@itacademy.com">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-control" value="+91 98765 43210">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Role</label>
+                            <input type="text" class="form-control" value="Super Admin" disabled>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Status</label>
+                            <select class="form-select">
+                                <option selected>Active</option>
+                                <option>Inactive</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer border-0 px-4">
+                    <button class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary px-4">Save Changes</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JS -->
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = () => document.getElementById("profileImg").src = reader.result;
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
+    <!-- link of main js  -->
+    <script src="./assets/js/main.js"></script>
+    <!-- bootstrap js link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
