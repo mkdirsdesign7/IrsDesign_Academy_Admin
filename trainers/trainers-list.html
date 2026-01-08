@@ -99,7 +99,8 @@
         </button>
 
         <nav class="sidebar-nav">
-            <a href="./../dashboard.html" class="sidebar-link "><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+            <a href="./../dashboard.html" class="sidebar-link "><i
+                    class="bi bi-speedometer2"></i><span>Dashboard</span></a>
             <a href="./../students/students-list.html" class="sidebar-link"><i
                     class="bi bi-people"></i><span>Students</span></a>
             <a href="./../courses/courses-list.html" class="sidebar-link"><i
@@ -143,10 +144,48 @@
                 <input class="form-control search-input" style="width:240px" placeholder="Search...">
             </div>
 
-            <button class="btn btn-light position-relative">
-                <i class="bi bi-bell"></i>
-                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>
-            </button>
+            <!--==================== Bell Icon ==================-->
+            <div class="dropdown text-end">
+                <div class="notification-bell" data-bs-toggle="dropdown">
+                    <i class="bi bi-bell fs-4"></i>
+                    <span class="notify-dot"></span>
+                </div>
+
+                <!-- Dropdown notification -->
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-notify">
+
+                    <div class="notify-header">
+                        Notifications
+                    </div>
+
+                    <div style="max-height: 280px; overflow-y: auto;">
+                        <div class="notify-item">
+                            <div class="notify-avatar">RK</div>
+                            <div>
+                                <div><strong>Rahul Kumar</strong> enrolled in Full Stack</div>
+                                <div class="notify-time">2 min ago</div>
+                            </div>
+                        </div>
+
+                        <div class="notify-item">
+                            <div class="notify-avatar">PS</div>
+                            <div>
+                                <div><strong>Priya Sharma</strong> made a payment</div>
+                                <div class="notify-time">1 hour ago</div>
+                            </div>
+                        </div>
+
+                        <div class="notify-item">
+                            <div class="notify-avatar">AS</div>
+                            <div>
+                                <div><strong>Amit Singh</strong> sent a message</div>
+                                <div class="notify-time">Yesterday</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
             <div class="dropdown">
                 <button class="btn btn-light d-flex align-items-center gap-2" data-bs-toggle="dropdown">

@@ -149,13 +149,20 @@
                     class="bi bi-book"></i><span>Courses</span></a>
             <a href="./trainers-list.html" class="sidebar-link active"><i
                     class="bi bi-person-video2"></i><span>Teachers</span></a>
-            <a href="./../batches/batches-list.html" class="sidebar-link"><i class="bi bi-layers"></i><span>Batches</span></a>
-            <a href="./../attendance/attendance.html" class="sidebar-link"><i class="bi bi-calendar-check"></i><span>Attendance</span></a>
-            <a href="./../payment/payments-list.html" class="sidebar-link"><i class="bi bi-credit-card"></i><span>Payments</span></a>
-            <a href="./../enquiries/enquiries-list.html" class="sidebar-link"><i class="bi bi-chat-left-dots"></i><span>Enquiries</span></a>
-            <a href="./../certificates/certificates.html" class="sidebar-link"><i class="bi bi-patch-check"></i><span>Certificates</span></a>
-            <a href="./../reports/reports.html" class="sidebar-link"><i class="fa-regular fa-chart-bar"></i><span>Reports</span></a>
-            <a href="./../settings/settings.html" class="sidebar-link"><i class="bi bi-gear"></i><span>Settings</span></a>
+            <a href="./../batches/batches-list.html" class="sidebar-link"><i
+                    class="bi bi-layers"></i><span>Batches</span></a>
+            <a href="./../attendance/attendance.html" class="sidebar-link"><i
+                    class="bi bi-calendar-check"></i><span>Attendance</span></a>
+            <a href="./../payment/payments-list.html" class="sidebar-link"><i
+                    class="bi bi-credit-card"></i><span>Payments</span></a>
+            <a href="./../enquiries/enquiries-list.html" class="sidebar-link"><i
+                    class="bi bi-chat-left-dots"></i><span>Enquiries</span></a>
+            <a href="./../certificates/certificates.html" class="sidebar-link"><i
+                    class="bi bi-patch-check"></i><span>Certificates</span></a>
+            <a href="./../reports/reports.html" class="sidebar-link"><i
+                    class="fa-regular fa-chart-bar"></i><span>Reports</span></a>
+            <a href="./../settings/settings.html" class="sidebar-link"><i
+                    class="bi bi-gear"></i><span>Settings</span></a>
         </nav>
 
         <div class="sidebar-footer">
@@ -179,10 +186,48 @@
                 <input class="form-control search-input" style="width:240px" placeholder="Search...">
             </div>
 
-            <button class="btn btn-light position-relative">
-                <i class="bi bi-bell"></i>
-                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>
-            </button>
+            <!--==================== Bell Icon ==================-->
+            <div class="dropdown text-end">
+                <div class="notification-bell" data-bs-toggle="dropdown">
+                    <i class="bi bi-bell fs-4"></i>
+                    <span class="notify-dot"></span>
+                </div>
+
+                <!-- Dropdown notification -->
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-notify">
+
+                    <div class="notify-header">
+                        Notifications
+                    </div>
+
+                    <div style="max-height: 280px; overflow-y: auto;">
+                        <div class="notify-item">
+                            <div class="notify-avatar">RK</div>
+                            <div>
+                                <div><strong>Rahul Kumar</strong> enrolled in Full Stack</div>
+                                <div class="notify-time">2 min ago</div>
+                            </div>
+                        </div>
+
+                        <div class="notify-item">
+                            <div class="notify-avatar">PS</div>
+                            <div>
+                                <div><strong>Priya Sharma</strong> made a payment</div>
+                                <div class="notify-time">1 hour ago</div>
+                            </div>
+                        </div>
+
+                        <div class="notify-item">
+                            <div class="notify-avatar">AS</div>
+                            <div>
+                                <div><strong>Amit Singh</strong> sent a message</div>
+                                <div class="notify-time">Yesterday</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
             <div class="dropdown">
                 <button class="btn btn-light d-flex align-items-center gap-2" data-bs-toggle="dropdown">
@@ -218,7 +263,8 @@
                     <div class="profile-card p-4 text-center shadow-lg">
 
                         <div class="profile-avatar-wrapper mb-3 position-relative mx-auto">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" id="profileImg" class="profile-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" id="profileImg"
+                                class="profile-img">
 
                             <label for="imgUpload" class="edit-img-btn">
                                 <i class="bi bi-camera-fill"></i>
