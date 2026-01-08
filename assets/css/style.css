@@ -259,7 +259,7 @@ body {
 }
 
 .navbar-custom .dropdown{
-    height: fit-content !important;
+    height: 65px !important;
 }
 
 .avatar {
