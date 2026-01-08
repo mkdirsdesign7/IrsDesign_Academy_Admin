@@ -249,7 +249,7 @@ body {
     background-color: #F9B217;
     box-shadow: rgba(230, 181, 48, 0.575) 0px 5px 15px;
     padding: 10px 20px !important;
-    height: 100px !important;
+    height: 80px !important;
 }
 
 .search-input {
@@ -261,7 +261,7 @@ body {
 
 .search-icon {
     position: absolute;
-    left: 12px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
     color: #6b7280;
