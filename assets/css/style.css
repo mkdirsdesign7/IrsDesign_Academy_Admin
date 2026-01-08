@@ -258,16 +258,13 @@ body {
     color: #6b7280;
 }
 
-.navbar-custom .dropdown{
-    height: 65px !important;
-}
 
 .avatar {
     width: 40px !important;
     height: 40px !important;
     border-radius: 50% !important;
-    background: #eef2ff !important;
-    color: #4f46e5 !important;
+    background: #4f46e5 !important;
+    color: #eef2ff!important;
     display: flex;
     align-items: center;
     justify-content: center;
