@@ -387,6 +387,8 @@ option {
 .notification-bell {
     position: relative;
     cursor: pointer;
+    background-color: #eef2ff !important;
+    border-radius: 10px !important;
 }
 
 .notify-dot {
