@@ -164,6 +164,7 @@ body {
 .sidebar-footer .sidebar-link {
     color: var(--danger);
     font-weight: 700;
+    background-color: none !important;
 }
 
 /* Collapse text */
