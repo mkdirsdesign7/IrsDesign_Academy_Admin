@@ -35,7 +35,7 @@
     --sidebar-bg: black;
     --sidebar-border: #1e293b;
     --sidebar-text: #e5e7eb;
-    --sidebar-muted: #121416;
+    --sidebar-muted: #1A1F2E;
     --primary: #6366f1;
     --danger: #ef4444;
     --orange: orange;
@@ -74,7 +74,7 @@ body {
     padding: 20px;
     border-bottom: 1px solid var(--sidebar-border);
     box-shadow: 0 4px 6px rgba(255, 249, 249, 0.12);
-
+    background-color: var();
 }
 
 .logo-box {
