@@ -143,6 +143,7 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    padding: 10px 20px !important;
 }
 
 /* Menu */
@@ -242,12 +243,14 @@ body {
 .navbar-custom {
     background-color: #F9B217;
     box-shadow: rgba(230, 181, 48, 0.575) 0px 5px 15px;
+    padding: 10px 0px !important;
 }
 
 .search-input {
     padding-left: 38px;
     background: #f1f5f9;
     border: none;
+    padding: 10px 20px !important;
 }
 
 .search-icon {
