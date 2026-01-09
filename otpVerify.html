@@ -49,17 +49,32 @@
             outline: none;
         }
 
+        /* ================= BUTTON ================= */
         .btn-main {
-            background: #facc15;
-            color: #000 !important;
-            font-weight: 600;
+            width: 100%;
             padding: 14px;
-            border-radius: 14px;
             border: none;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #000;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .btn-main a {
+            color: #1f2937 !important;
+            text-decoration: none !important;
         }
 
         .btn-main:hover {
-            background: #fde047;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(255, 193, 7, .45);
+        }
+
+        .btn-main:active {
+            transform: scale(.96);
         }
 
         .text-muted-small {
@@ -84,7 +99,7 @@
                 <input type="text" maxlength="1" class="otp-input">
                 <input type="text" maxlength="1" class="otp-input">
             </div>
-            
+
             <a href="./updatePassword.html" class="btn btn-main w-100">
                 Verify OTP →
             </a>
