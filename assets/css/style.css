@@ -373,6 +373,22 @@ option {
 
 /* =================ALL TABLE MEDIA QUARIES =================== */
 
+@media screen and (max-width: 1370px) {
+    .table-responsive {
+        overflow-x: auto !important;
+    }
+
+    .table {
+        min-width: 900px !important;
+        white-space: nowrap !important;
+    }
+
+    .table th,
+    .table td {
+        white-space: nowrap !important;
+    }
+}
+
 @media screen and (max-width: 1080px) {
     .table-responsive {
         overflow-x: auto !important;
@@ -388,6 +404,8 @@ option {
         white-space: nowrap !important;
     }
 }
+
+
 
 
 
