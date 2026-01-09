@@ -262,33 +262,18 @@
                                 <td><span class="badge-status active">Active</span></td>
                                 <td class="text-center">
                                     <div class="dropdown">
-                                        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
-                                            <i class="bi bi-three-dots-vertical"></i>
-                                        </button>
+                                        <a href="./student-profile.html" class="dropdown-item action-icon text-success"
+                                            data-tooltip="View Profile">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a class="dropdown-item action-icon text-primary" data-bs-toggle="modal"
+                                            data-bs-target="#studentModal" data-tooltip="Edit Student">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
 
-                                        <ul class="dropdown-menu dropdown-menu-end action-dropdown">
-                                            <li>
-                                                <a href="./student-profile.html"
-                                                    class="dropdown-item action-icon text-success"
-                                                    data-tooltip="View Profile">
-                                                    <i class="bi bi-eye"></i>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="dropdown-item action-icon text-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#studentModal" data-tooltip="Edit Student">
-                                                    <i class="bi bi-pencil-square"></i>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="dropdown-item action-icon text-danger"
-                                                    data-tooltip="Remove Student">
-                                                    <i class="bi bi-trash"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        <a class="dropdown-item action-icon text-danger" data-tooltip="Remove Student">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
                                     </div>
                                 </td>
 
