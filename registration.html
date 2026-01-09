@@ -52,20 +52,13 @@
                 </div>
 
                 <!-- Password -->
-                <div class="position-relative">
-                    <!-- Lock icon -->
-                    <i class="bi bi-lock position-absolute top-50 start-0 translate-middle-y ms-3 opacity-75"></i>
-
-                    <!-- Input -->
-                    <input type="password" class="form-control ps-5 pe-5" placeholder="Password" required>
-
-                    <!-- Eye icon -->
-                    <span class="position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer">
+                <div class="form-group">
+                    <i class="bi bi-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                    <span class="toggle">
                         <i class="bi bi-eye"></i>
                     </span>
                 </div>
-
-
 
 
                 <!-- Terms -->
@@ -97,18 +90,16 @@
     </div>
 
     <script>
-        document.querySelector(".bi-eye").addEventListener("click", function () {
-            const input = this.closest(".position-relative").querySelector("input");
-            if (input.type === "password") {
-                input.type = "text";
-                this.classList.replace("bi-eye", "bi-eye-slash");
-            } else {
-                input.type = "password";
-                this.classList.replace("bi-eye-slash", "bi-eye");
-            }
+        const toggle = document.querySelector(".toggle");
+        const input = document.querySelector("input[type='password']");
+
+        toggle.addEventListener("click", () => {
+            input.type = input.type === "password" ? "text" : "password";
+            toggle.innerHTML = input.type === "password"
+                ? '<i class="bi bi-eye"></i>'
+                : '<i class="bi bi-eye-slash"></i>';
         });
     </script>
-
 
 </body>
 
