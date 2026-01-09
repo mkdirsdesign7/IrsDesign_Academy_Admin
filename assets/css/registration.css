@@ -147,3 +147,23 @@ body {
     color: #22c55e;
     margin-top: 16px;
 }
+
+
+/* =================== eye button of password right position ================== */
+
+.form-group {
+    position: relative !important;
+}
+
+.form-group .toggle {
+    position: absolute !important;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.form-group .toggle:hover {
+    opacity: 1;
+}

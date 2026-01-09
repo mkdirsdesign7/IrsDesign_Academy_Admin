@@ -52,11 +52,14 @@
                 </div>
 
                 <!-- Password -->
-                <div class="form-group position-relative">
+                <div class="form-group">
                     <i class="bi bi-lock"></i>
                     <input type="password" placeholder="Password" required>
-                    <span class="toggle position-absolute"><i class="bi bi-eye"></i></span>
+                    <span class="toggle">
+                        <i class="bi bi-eye"></i>
+                    </span>
                 </div>
+
 
                 <!-- Terms -->
                 <div class="options">
@@ -85,6 +88,18 @@
 
         </div>
     </div>
+
+    <script>
+        const toggle = document.querySelector(".toggle");
+        const input = document.querySelector("input[type='password']");
+
+        toggle.addEventListener("click", () => {
+            input.type = input.type === "password" ? "text" : "password";
+            toggle.innerHTML = input.type === "password"
+                ? '<i class="bi bi-eye"></i>'
+                : '<i class="bi bi-eye-slash"></i>';
+        });
+    </script>
 
 </body>
 
